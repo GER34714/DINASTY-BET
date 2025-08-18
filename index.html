@@ -4,6 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DINASTY BET ™</title>
+
+<!-- Meta Open Graph para vista previa con imagen optimizada -->
+<meta property="og:title" content="DINASTY BET ™ - Tu nueva experiencia de casino online">
+<meta property="og:description" content="Bienvenido a la nueva era del juego online. Juega responsablemente y diviértete con DINASTY BET ™.">
+<meta property="og:image" content="https://raw.githubusercontent.com/GER34714/DINASTY-BET/refs/heads/main/LOGO-VISTA-PREVIA.jpg">
+<meta property="og:url" content="https://tulanding.render.com">
+<meta property="og:type" content="website">
+
+<!-- Meta Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DINASTY BET ™ - Tu nueva experiencia de casino online">
+<meta name="twitter:description" content="Bienvenido a la nueva era del juego online. Juega responsablemente y diviértete con DINASTY BET ™.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/GER34714/DINASTY-BET/refs/heads/main/LOGO-VISTA-PREVIA.jpg">
+
 <style>
   body {
     margin: 0;
@@ -26,14 +40,27 @@
     z-index: 2;
   }
 
-  /* Logo principal */
+  .welcome-text {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #ffd700;
+    font-weight: bold;
+    text-shadow: 0 0 2px #ffd700, 0 0 4px #ffcc00, 0 0 6px #ffdd33;
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes neonGlow {
+    from { text-shadow: 0 0 2px #ffd700, 0 0 4px #ffcc00, 0 0 6px #ffdd33; }
+    to { text-shadow: 0 0 6px #ffd700, 0 0 12px #ffcc00, 0 0 18px #ffdd33; }
+  }
+
   .logo-container {
     margin-bottom: 20px;
     animation: pulseLogo 2s infinite;
   }
 
   .croupier-logo {
-    width: 360px; /* tamaño grande */
+    width: 400px; 
     height: auto;
     border-radius: 12px;
   }
@@ -43,25 +70,15 @@
     50% { transform: scale(1.05); }
   }
 
-  /* Texto principal grande y llamativo con brillo más sutil */
-  .welcome-text {
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-    color: #ffd700;
-    font-weight: bold;
-    text-shadow: 0 0 4px #ffd700, 0 0 8px #ffcc00, 0 0 12px #ffdd33; /* brillo más opaco */
-  }
-
   .btn-container {
     margin-top: 20px;
   }
 
-  /* Botón compacto estilo neon ajustado al texto */
   .btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 4px 8px; /* ajustado al texto */
+    padding: 4px 8px; 
     background: #000;
     color: #25D366;
     font-weight: bold;
@@ -94,7 +111,6 @@
     line-height: 1.4;
   }
 
-  /* Partículas doradas */
   .particle {
     position: absolute;
     width: 6px;
@@ -102,13 +118,19 @@
     background: #ffd700;
     border-radius: 50%;
     opacity: 0.8;
-    animation: floatParticle linear infinite;
+    animation: floatParticle linear infinite, sparkle 1.5s ease-in-out infinite alternate;
   }
 
   @keyframes floatParticle {
     0% { transform: translateY(0) translateX(0); opacity: 0.8; }
     50% { opacity: 0.4; }
     100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+  }
+
+  @keyframes sparkle {
+    0% { opacity: 0.5; box-shadow: 0 0 2px #ffd700, 0 0 4px #ffd700; }
+    50% { opacity: 1; box-shadow: 0 0 8px #ffd700, 0 0 16px #ffd700; }
+    100% { opacity: 0.5; box-shadow: 0 0 2px #ffd700, 0 0 4px #ffd700; }
   }
 
   @media (max-width: 450px) {
@@ -122,12 +144,11 @@
 <body>
 
 <div class="container">
+  <div class="welcome-text">Bienvenido a la nueva era del juego online</div>
+
   <div class="logo-container">
     <img src="https://raw.githubusercontent.com/GER34714/DINASTY-BET/refs/heads/main/IMG-20250818-WA0033(1).jpg" alt="Logo DINASTY BET" class="croupier-logo">
   </div>
-
-  <!-- Texto principal grande y llamativo -->
-  <div class="welcome-text">Bienvenido a la nueva era del juego online</div>
 
   <div class="btn-container">
     <a class="btn" id="whatsappBtn">
@@ -158,7 +179,7 @@
     window.open(link, "_blank");
   });
 
-  // Crear partículas doradas
+  // Partículas doradas
   const particleCount = 30;
   for(let i=0; i<particleCount; i++){
     const p = document.createElement('div');
