@@ -26,14 +26,14 @@
     z-index: 2;
   }
 
-  /* Logo principal aún más grande */
+  /* Logo principal */
   .logo-container {
     margin-bottom: 20px;
     animation: pulseLogo 2s infinite;
   }
 
   .croupier-logo {
-    width: 360px; /* tamaño aumentado */
+    width: 360px; /* tamaño grande */
     height: auto;
     border-radius: 12px;
   }
@@ -87,23 +87,11 @@
     transform: scale(1.05);
   }
 
-  .loader {
-    border: 4px solid #333;
-    border-top: 4px solid #ffd700;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    margin: 18px auto;
-    animation: spin 1s linear infinite;
-  }
-
-  @keyframes spin { 100% { transform: rotate(360deg); } }
-
   .legal {
     font-size: 0.75rem;
     color: #ffcc00;
     margin-top: 12px;
-    line-height: 1.4;
+    line-height: 1.2;
   }
 
   /* Partículas doradas */
@@ -141,8 +129,6 @@
   <!-- Texto principal grande y llamativo -->
   <div class="welcome-text">Bienvenido a la nueva era del juego online</div>
 
-  <div class="loader"></div>
-
   <div class="btn-container">
     <a class="btn" id="whatsappBtn">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
@@ -151,8 +137,7 @@
   </div>
 
   <div class="legal">
-    <p>No apto para menores de 18 años</p>
-    <p>Jugar compulsivamente es perjudicial para la salud</p>
+    No apto para menores de 18 años. Jugar compulsivamente es perjudicial para la salud.
   </div>
 </div>
 
