@@ -26,23 +26,14 @@
     z-index: 2;
   }
 
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #ffd700;
-    text-shadow: 0 0 8px #ffd700, 0 0 16px #ffcc00;
-  }
-
+  /* Logo principal más grande */
   .logo-container {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     animation: pulseLogo 2s infinite;
   }
 
-  /* Logo principal más grande */
   .croupier-logo {
-    width: 220px; /* tamaño aumentado */
+    width: 260px; /* logo aún más grande */
     height: auto;
     border-radius: 12px;
   }
@@ -52,23 +43,32 @@
     50% { transform: scale(1.05); }
   }
 
+  /* Texto principal grande y llamativo */
+  .welcome-text {
+    font-size: 2rem; /* más grande */
+    margin-bottom: 20px;
+    color: #ffd700;
+    font-weight: bold;
+    text-shadow: 0 0 8px #ffd700, 0 0 16px #ffcc00, 0 0 24px #ffdd33;
+  }
+
   .btn-container {
     margin-top: 20px;
   }
 
-  /* Botón compacto */
+  /* Botón compacto estilo neon */
   .btn {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 8px 14px; 
+    padding: 6px 12px; /* más pequeño y compacto */
     background: #000;
     color: #25D366;
     font-weight: bold;
     text-decoration: none;
     border-radius: 12px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     border: 2px solid #25D366;
     box-shadow: 0 0 10px #25D366, 0 0 20px #25D366, 0 0 30px #25D366;
     transition: all 0.3s ease;
@@ -76,7 +76,7 @@
     position: relative;
   }
 
-  /* Logo de WhatsApp grande */
+  /* Logo de WhatsApp grande dentro del botón */
   .btn img {
     width: 48px;
     height: 48px;
@@ -126,10 +126,10 @@
   }
 
   @media (max-width: 450px) {
-    h1 { font-size: 2rem; }
-    .btn { font-size: 0.85rem; padding: 6px 12px; }
+    .welcome-text { font-size: 1.5rem; }
+    .btn { font-size: 0.8rem; padding: 5px 10px; }
     .btn img { width: 36px; height: 36px; }
-    .croupier-logo { width: 160px; } /* tamaño más grande en móvil también */
+    .croupier-logo { width: 180px; }
   }
 </style>
 </head>
@@ -140,8 +140,9 @@
     <img src="https://raw.githubusercontent.com/GER34714/DINASTY-BET/refs/heads/main/IMG-20250818-WA0033(1).jpg" alt="Logo DINASTY BET" class="croupier-logo">
   </div>
 
-  <h1>DINASTY BET ™</h1>
-  <p>Bienvenido a la nueva era del juego online</p>
+  <!-- Texto principal grande y llamativo -->
+  <div class="welcome-text">Bienvenido a la nueva era del juego online</div>
+
   <div class="loader"></div>
 
   <div class="btn-container">
