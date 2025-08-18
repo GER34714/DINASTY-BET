@@ -15,7 +15,7 @@
     align-items: center;
     height: 100vh;
     text-align: center;
-    overflow: hidden; /* Para que las partículas no salgan del viewport */
+    overflow: hidden;
   }
 
   .container {
@@ -23,7 +23,7 @@
     width: 100%;
     padding: 20px;
     position: relative;
-    z-index: 2; /* Para que quede sobre las partículas */
+    z-index: 2;
   }
 
   h1 {
@@ -40,8 +40,9 @@
     animation: pulseLogo 2s infinite;
   }
 
+  /* Logo principal más grande */
   .croupier-logo {
-    width: 160px; 
+    width: 220px; /* tamaño aumentado */
     height: auto;
     border-radius: 12px;
   }
@@ -55,19 +56,19 @@
     margin-top: 20px;
   }
 
-  /* Botón estilo neon */
+  /* Botón compacto */
   .btn {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 14px 24px;
+    padding: 8px 14px; 
     background: #000;
     color: #25D366;
     font-weight: bold;
     text-decoration: none;
     border-radius: 12px;
-    font-size: 1.2rem;
+    font-size: 0.95rem;
     border: 2px solid #25D366;
     box-shadow: 0 0 10px #25D366, 0 0 20px #25D366, 0 0 30px #25D366;
     transition: all 0.3s ease;
@@ -75,9 +76,10 @@
     position: relative;
   }
 
+  /* Logo de WhatsApp grande */
   .btn img {
-    width: 28px;
-    height: 28px;
+    width: 48px;
+    height: 48px;
   }
 
   .btn:hover {
@@ -125,8 +127,9 @@
 
   @media (max-width: 450px) {
     h1 { font-size: 2rem; }
-    .btn { font-size: 1rem; padding: 12px 20px; }
-    .croupier-logo { width: 120px; }
+    .btn { font-size: 0.85rem; padding: 6px 12px; }
+    .btn img { width: 36px; height: 36px; }
+    .croupier-logo { width: 160px; } /* tamaño más grande en móvil también */
   }
 </style>
 </head>
