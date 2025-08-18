@@ -8,24 +8,26 @@
   body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #000; /* fondo negro sólido */
+    background-color: #000; 
     color: #ffd700;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     text-align: center;
-    padding: 10px;
+    overflow: hidden; /* Para que las partículas no salgan del viewport */
   }
 
   .container {
     max-width: 400px;
     width: 100%;
     padding: 20px;
+    position: relative;
+    z-index: 2; /* Para que quede sobre las partículas */
   }
 
   h1 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -34,67 +36,55 @@
   }
 
   .logo-container {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    animation: pulseLogo 2s infinite;
   }
 
   .croupier-logo {
-    width: 120px;
+    width: 160px; 
     height: auto;
-    margin-bottom: 10px;
     border-radius: 12px;
   }
 
-  .btn-container {
-    margin-top: 15px;
+  @keyframes pulseLogo {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
   }
 
+  .btn-container {
+    margin-top: 20px;
+  }
+
+  /* Botón estilo neon */
   .btn {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 14px 22px;
-    background: #25D366;
-    color: #fff;
+    padding: 14px 24px;
+    background: #000;
+    color: #25D366;
     font-weight: bold;
     text-decoration: none;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
+    border-radius: 12px;
+    font-size: 1.2rem;
+    border: 2px solid #25D366;
+    box-shadow: 0 0 10px #25D366, 0 0 20px #25D366, 0 0 30px #25D366;
     transition: all 0.3s ease;
     cursor: pointer;
     position: relative;
-    z-index: 1;
-  }
-
-  /* Halo pulsante */
-  .btn::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: -8px;
-    right: -8px;
-    bottom: -8px;
-    border-radius: 14px;
-    background: rgba(37, 211, 102, 0.4);
-    z-index: -1;
-    animation: pulseHalo 1.5s infinite;
-  }
-
-  @keyframes pulseHalo {
-    0% { transform: scale(1); opacity: 0.6; }
-    50% { transform: scale(1.2); opacity: 0.2; }
-    100% { transform: scale(1); opacity: 0.6; }
-  }
-
-  .btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 25px rgba(37, 211, 102, 0.8);
   }
 
   .btn img {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .btn:hover {
+    color: #fff;
+    text-shadow: 0 0 5px #25D366, 0 0 10px #25D366, 0 0 20px #25D366;
+    box-shadow: 0 0 15px #25D366, 0 0 25px #25D366, 0 0 40px #25D366;
+    transform: scale(1.05);
   }
 
   .loader {
@@ -116,14 +106,32 @@
     line-height: 1.4;
   }
 
+  /* Partículas doradas */
+  .particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #ffd700;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: floatParticle linear infinite;
+  }
+
+  @keyframes floatParticle {
+    0% { transform: translateY(0) translateX(0); opacity: 0.8; }
+    50% { opacity: 0.4; }
+    100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+  }
+
   @media (max-width: 450px) {
-    h1 { font-size: 1.9rem; }
+    h1 { font-size: 2rem; }
     .btn { font-size: 1rem; padding: 12px 20px; }
-    .croupier-logo { width: 80px; }
+    .croupier-logo { width: 120px; }
   }
 </style>
 </head>
 <body>
+
 <div class="container">
   <div class="logo-container">
     <img src="https://raw.githubusercontent.com/GER34714/DINASTY-BET/refs/heads/main/IMG-20250818-WA0033(1).jpg" alt="Logo DINASTY BET" class="croupier-logo">
@@ -159,6 +167,19 @@
     currentIndex = (currentIndex + 1) % numbers.length;
     window.open(link, "_blank");
   });
+
+  // Crear partículas doradas
+  const particleCount = 30;
+  for(let i=0; i<particleCount; i++){
+    const p = document.createElement('div');
+    p.classList.add('particle');
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.top = Math.random() * 100 + 'vh';
+    p.style.width = Math.random()*4 + 3 + 'px';
+    p.style.height = p.style.width;
+    p.style.animationDuration = 5 + Math.random()*5 + 's';
+    document.body.appendChild(p);
+  }
 </script>
 </body>
 </html>
