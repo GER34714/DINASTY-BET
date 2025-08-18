@@ -1,93 +1,245 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DINASTY BET ™ - Bienvenido</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #000000, #1a1a1a);
-      color: #ffd700;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-    .container {
-      max-width: 400px;
-      padding: 20px;
-    }
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-      color: #ffd700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 15px 25px;
-      background: #ffd700;
-      color: #000;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 10px;
-      font-size: 1.2rem;
-      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
-      transition: all 0.3s ease;
-    }
-    .btn:hover {
-      background: #e6c200;
-      transform: scale(1.05);
-    }
-    .logo {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-    .loader {
-      border: 5px solid #333;
-      border-top: 5px solid #ffd700;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      margin: 20px auto;
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-      100% { transform: rotate(360deg); }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DINASTY BET ™</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(-45deg, #000000, #1a1a1a, #000000, #2a2a2a);
+    background-size: 400% 400%;
+    animation: gradientMove 20s linear infinite;
+    color: #ffd700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    padding: 10px;
+  }
+
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .container {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #ffd700, #ffdd55);
+    background-size: 200% auto;
+    color: #000;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+    text-shadow: 0 0 8px #ffd700, 0 0 16px #ffcc00;
+  }
+
+  @keyframes shine { to { background-position: 200% center; } }
+
+  .logo-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  .croupier-logo {
+    width: 80px;
+    height: auto;
+    margin-bottom: 5px;
+  }
+
+  .logo {
+    font-size: 2.8rem;
+    animation: bounce 1.8s infinite;
+  }
+
+  @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+  .btn-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 15px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 14px 22px;
+    background: #ffd700;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+    transition: all 0.3s ease;
+    animation: pulse 1.5s infinite;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+  }
+
+  .btn:hover {
+    background: #e6c200;
+    transform: scale(1.08);
+    box-shadow: 0 0 16px #ffd700;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+    100% { transform: scale(1); }
+  }
+
+  /* Halo y partículas verdes */
+  .particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(37, 211, 102, 0.7);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: floatParticle 2s infinite ease-in-out;
+  }
+
+  @keyframes floatParticle {
+    0% { transform: translate(0,0) scale(1); opacity: 1; }
+    50% { transform: translate(var(--x), var(--y)) scale(0.5); opacity: 0.6; }
+    100% { transform: translate(0,0) scale(1); opacity: 1; }
+  }
+
+  .loader {
+    border: 4px solid #333;
+    border-top: 4px solid #ffd700;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    margin: 18px auto;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin { 100% { transform: rotate(360deg); } }
+
+  .music-control {
+    margin-top: 15px;
+    background: transparent;
+    border: 2px solid #ffd700;
+    color: #ffd700;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+  }
+
+  .music-control:hover { background: #ffd700; color: #000; }
+
+  .legal {
+    font-size: 0.75rem;
+    color: #ffcc00;
+    margin-top: 12px;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 450px) {
+    h1 { font-size: 1.9rem; }
+    .btn { font-size: 1rem; padding: 12px 20px; }
+    .logo { font-size: 2.5rem; }
+    .music-control { font-size: 0.9rem; padding: 7px 12px; }
+    .croupier-logo { width: 60px; }
+  }
+</style>
 </head>
 <body>
-  <div class="container">
+<div class="container">
+  <div class="logo-container">
+    <img src="croupier.png" alt="Croupier" class="croupier-logo">
     <div class="logo">🏆</div>
-    <h1>DINASTY BET ™</h1>
-    <p>Tu próxima experiencia de casino está aquí</p>
-    <div class="loader"></div>
-    <a id="whatsappBtn" class="btn" target="_blank">Ir a WhatsApp</a>
   </div>
 
-  <script>
-    // Números de WhatsApp disponibles
-    const numbers = [
-      "5491123365501",
-      "5491159255356"
-    ];
+  <h1>DINASTY BET ™</h1>
+  <p>Bienvenido a la nueva era del juego online</p>
+  <div class="loader"></div>
 
-    // Seleccionar aleatoriamente un número
-    const randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
+  <div class="btn-container">
+    <a class="btn" id="whatsappBtn">Ir a WhatsApp</a>
+  </div>
 
-    // Mensaje predeterminado
-    const message = "hola me creas un usuario";
+  <button class="music-control" id="musicBtn">🔊 Música ON</button>
 
-    // Construcción del link
-    const whatsappLink = `https://wa.me/${randomNumber}?text=${encodeURIComponent(message)}`;
+  <div class="legal">
+    <p>No apto para menores de 18 años</p>
+    <p>Jugar compulsivamente es perjudicial para la salud</p>
+  </div>
+</div>
 
-    // Asignar al botón
-    document.getElementById("whatsappBtn").href = whatsappLink;
-  </script>
+<audio id="bgMusic" loop>
+  <source src="https://files.catbox.moe/k0px4j.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // WhatsApp rotativo
+  const numbers = ["5491123365501","5491159255356"];
+  let currentIndex = 0;
+  const message = "hola me creas un usuario";
+  const btn = document.getElementById("whatsappBtn");
+
+  btn.addEventListener("click", function(e){
+    e.preventDefault();
+    const link = `https://wa.me/${numbers[currentIndex]}?text=${encodeURIComponent(message)}`;
+    currentIndex = (currentIndex + 1) % numbers.length;
+    window.open(link, "_blank");
+  });
+
+  // Música
+  const music = document.getElementById("bgMusic");
+  const musicBtn = document.getElementById("musicBtn");
+  let isPlaying = false;
+
+  musicBtn.addEventListener("click", () => {
+    if (isPlaying) {
+      music.pause();
+      musicBtn.textContent = "🔇 Música OFF";
+    } else {
+      music.play();
+      musicBtn.textContent = "🔊 Música ON";
+    }
+    isPlaying = !isPlaying;
+  });
+
+  // Crear partículas alrededor del botón
+  const btnContainer = document.querySelector('.btn-container');
+
+  function createParticle() {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    const x = (Math.random() - 0.5) * 60 + "px";
+    const y = (Math.random() - 0.5) * 60 + "px";
+    particle.style.setProperty('--x', x);
+    particle.style.setProperty('--y', y);
+    btnContainer.appendChild(particle);
+    setTimeout(() => particle.remove(), 2000);
+  }
+
+  setInterval(createParticle, 200);
+</script>
 </body>
 </html>
