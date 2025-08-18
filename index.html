@@ -26,14 +26,14 @@
     z-index: 2;
   }
 
-  /* Logo principal más grande */
+  /* Logo principal aún más grande */
   .logo-container {
     margin-bottom: 20px;
     animation: pulseLogo 2s infinite;
   }
 
   .croupier-logo {
-    width: 260px; /* logo aún más grande */
+    width: 360px; /* tamaño aumentado */
     height: auto;
     border-radius: 12px;
   }
@@ -45,7 +45,7 @@
 
   /* Texto principal grande y llamativo */
   .welcome-text {
-    font-size: 2rem; /* más grande */
+    font-size: 2.2rem;
     margin-bottom: 20px;
     color: #ffd700;
     font-weight: bold;
@@ -56,30 +56,28 @@
     margin-top: 20px;
   }
 
-  /* Botón compacto estilo neon */
+  /* Botón compacto estilo neon ajustado al texto */
   .btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 6px 12px; /* más pequeño y compacto */
+    gap: 6px;
+    padding: 4px 8px; /* ajustado al texto */
     background: #000;
     color: #25D366;
     font-weight: bold;
     text-decoration: none;
-    border-radius: 12px;
-    font-size: 0.9rem;
+    border-radius: 10px;
+    font-size: 0.85rem;
     border: 2px solid #25D366;
-    box-shadow: 0 0 10px #25D366, 0 0 20px #25D366, 0 0 30px #25D366;
+    box-shadow: 0 0 8px #25D366, 0 0 15px #25D366, 0 0 25px #25D366;
     transition: all 0.3s ease;
     cursor: pointer;
     position: relative;
   }
 
-  /* Logo de WhatsApp grande dentro del botón */
   .btn img {
-    width: 48px;
-    height: 48px;
+    width: 36px;
+    height: 36px;
   }
 
   .btn:hover {
@@ -126,10 +124,10 @@
   }
 
   @media (max-width: 450px) {
-    .welcome-text { font-size: 1.5rem; }
-    .btn { font-size: 0.8rem; padding: 5px 10px; }
-    .btn img { width: 36px; height: 36px; }
-    .croupier-logo { width: 180px; }
+    .welcome-text { font-size: 1.8rem; }
+    .btn { font-size: 0.75rem; padding: 3px 6px; }
+    .btn img { width: 28px; height: 28px; }
+    .croupier-logo { width: 240px; }
   }
 </style>
 </head>
@@ -148,7 +146,7 @@
   <div class="btn-container">
     <a class="btn" id="whatsappBtn">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-      Ir a WhatsApp
+      Contáctanos por WhatsApp
     </a>
   </div>
 
