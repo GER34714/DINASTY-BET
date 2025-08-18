@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DINASTY BET ™</title>
 
-<!-- Meta Open Graph para vista previa con imagen optimizada -->
+<!-- Meta Open Graph para vista previa -->
 <meta property="og:title" content="DINASTY BET ™ - Tu nueva experiencia de casino online">
 <meta property="og:description" content="Bienvenido a la nueva era del juego online. Juega responsablemente y diviértete con DINASTY BET ™.">
 <meta property="og:image" content="https://raw.githubusercontent.com/GER34714/DINASTY-BET/refs/heads/main/LOGO-VISTA-PREVIA.jpg">
@@ -29,47 +29,33 @@
     align-items: center;
     height: 100vh;
     text-align: center;
-    overflow: hidden;
   }
 
   .container {
     max-width: 400px;
     width: 100%;
     padding: 20px;
-    position: relative;
-    z-index: 2;
   }
 
   /* Logo principal arriba */
   .logo-container {
     margin-bottom: 20px;
-    animation: pulseLogo 2s infinite;
   }
 
   .croupier-logo {
-    width: 450px; /* Aumentado de 400px */
+    width: 100%;
+    max-width: 450px;
     height: auto;
     border-radius: 12px;
   }
 
-  @keyframes pulseLogo {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-  }
-
-  /* Texto de bienvenida debajo del logo */
+  /* Texto de bienvenida debajo del logo, brillo sutil */
   .welcome-text {
-    font-size: 2.2rem;
+    font-size: 2rem;
     margin-bottom: 20px;
     color: #ffd700;
     font-weight: bold;
-    text-shadow: 0 0 1px #ffd700, 0 0 2px #ffcc00, 0 0 4px #ffdd33;
-    animation: neonGlow 1.5s ease-in-out infinite alternate;
-  }
-
-  @keyframes neonGlow {
-    from { text-shadow: 0 0 1px #ffd700, 0 0 2px #ffcc00, 0 0 4px #ffdd33; }
-    to { text-shadow: 0 0 2px #ffd700, 0 0 4px #ffcc00, 0 0 6px #ffdd33; }
+    text-shadow: 0 0 1px #ffd700, 0 0 2px #ffcc00;
   }
 
   .btn-container {
@@ -88,10 +74,9 @@
     border-radius: 10px;
     font-size: 0.85rem;
     border: 2px solid #25D366;
-    box-shadow: 0 0 8px #25D366, 0 0 15px #25D366, 0 0 25px #25D366;
+    box-shadow: 0 0 8px #25D366;
     transition: all 0.3s ease;
     cursor: pointer;
-    position: relative;
   }
 
   .btn img {
@@ -101,8 +86,8 @@
 
   .btn:hover {
     color: #fff;
-    text-shadow: 0 0 5px #25D366, 0 0 10px #25D366, 0 0 20px #25D366;
-    box-shadow: 0 0 15px #25D366, 0 0 25px #25D366, 0 0 40px #25D366;
+    text-shadow: 0 0 5px #25D366;
+    box-shadow: 0 0 15px #25D366;
     transform: scale(1.05);
   }
 
@@ -138,33 +123,11 @@
     line-height: 1.4;
   }
 
-  .particle {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: #ffd700;
-    border-radius: 50%;
-    opacity: 0.8;
-    animation: floatParticle linear infinite, sparkle 1.5s ease-in-out infinite alternate;
-  }
-
-  @keyframes floatParticle {
-    0% { transform: translateY(0) translateX(0); opacity: 0.8; }
-    50% { opacity: 0.4; }
-    100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
-  }
-
-  @keyframes sparkle {
-    0% { opacity: 0.5; box-shadow: 0 0 2px #ffd700, 0 0 4px #ffd700; }
-    50% { opacity: 1; box-shadow: 0 0 8px #ffd700, 0 0 16px #ffd700; }
-    100% { opacity: 0.5; box-shadow: 0 0 2px #ffd700, 0 0 4px #ffd700; }
-  }
-
   @media (max-width: 450px) {
     .welcome-text { font-size: 1.8rem; }
     .btn { font-size: 0.75rem; padding: 3px 6px; }
     .btn img { width: 28px; height: 28px; }
-    .croupier-logo { width: 280px; }
+    .croupier-logo { max-width: 280px; }
     .social-icons a img { width: 28px; height: 28px; }
   }
 </style>
@@ -219,19 +182,6 @@
     currentIndex = (currentIndex + 1) % numbers.length;
     window.open(link, "_blank");
   });
-
-  // Partículas doradas
-  const particleCount = 30;
-  for(let i=0; i<particleCount; i++){
-    const p = document.createElement('div');
-    p.classList.add('particle');
-    p.style.left = Math.random() * 100 + 'vw';
-    p.style.top = Math.random() * 100 + 'vh';
-    p.style.width = Math.random()*4 + 3 + 'px';
-    p.style.height = p.style.width;
-    p.style.animationDuration = 5 + Math.random()*5 + 's';
-    document.body.appendChild(p);
-  }
 </script>
 </body>
 </html>
