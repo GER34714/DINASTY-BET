@@ -59,18 +59,21 @@
     position: relative;
     display: inline-block;
     margin-bottom: 10px;
+    animation: pulse 2s infinite;
   }
 
   .croupier-logo {
-    width: 80px;
+    width: 120px;
     height: auto;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    border-radius: 12px;
   }
 
   .btn-container {
     position: relative;
     display: inline-block;
     margin-top: 15px;
+    animation: pulse 2s infinite;
   }
 
   .btn {
@@ -87,7 +90,6 @@
     font-size: 1.1rem;
     box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
     transition: all 0.3s ease;
-    animation: pulse 1.5s infinite;
     cursor: pointer;
     position: relative;
     z-index: 1;
@@ -105,7 +107,7 @@
 
   @keyframes pulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.04); }
+    50% { transform: scale(1.05); }
     100% { transform: scale(1); }
   }
 
@@ -131,14 +133,14 @@
   @media (max-width: 450px) {
     h1 { font-size: 1.9rem; }
     .btn { font-size: 1rem; padding: 12px 20px; }
-    .croupier-logo { width: 60px; }
+    .croupier-logo { width: 80px; }
   }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="logo-container">
-    <img src="croupier.png" alt="Croupier" class="croupier-logo">
+    <img src="https://raw.githubusercontent.com/GER34714/DINASTY-BET/refs/heads/main/Screenshot_2025-08-18-18-12-18-724_com.whatsapp.jpg" alt="Logo DINASTY BET" class="croupier-logo">
   </div>
 
   <h1>DINASTY BET ™</h1>
