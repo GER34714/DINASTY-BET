@@ -8,35 +8,20 @@
   body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ffd700, #000000);
-    background-size: 400% 400%;
-    animation: gradientMove 15s ease infinite;
+    background-color: #000; /* fondo negro sólido */
     color: #ffd700;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     text-align: center;
-    overflow: hidden;
     padding: 10px;
-  }
-
-  @keyframes gradientMove {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
   }
 
   .container {
     max-width: 400px;
     width: 100%;
     padding: 20px;
-    animation: fadeIn 1.5s ease-in-out;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
   }
 
   h1 {
@@ -44,22 +29,12 @@
     margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    background: linear-gradient(90deg, #ffd700, #ffdd55);
-    background-size: 200% auto;
-    color: #000;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 3s linear infinite;
+    color: #ffd700;
     text-shadow: 0 0 8px #ffd700, 0 0 16px #ffcc00;
   }
 
-  @keyframes shine { to { background-position: 200% center; } }
-
   .logo-container {
-    position: relative;
-    display: inline-block;
     margin-bottom: 10px;
-    animation: pulse 2s infinite;
   }
 
   .croupier-logo {
@@ -70,10 +45,7 @@
   }
 
   .btn-container {
-    position: relative;
-    display: inline-block;
     margin-top: 15px;
-    animation: pulse 2s infinite;
   }
 
   .btn {
@@ -95,6 +67,26 @@
     z-index: 1;
   }
 
+  /* Halo pulsante */
+  .btn::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 14px;
+    background: rgba(37, 211, 102, 0.4);
+    z-index: -1;
+    animation: pulseHalo 1.5s infinite;
+  }
+
+  @keyframes pulseHalo {
+    0% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.2); opacity: 0.2; }
+    100% { transform: scale(1); opacity: 0.6; }
+  }
+
   .btn:hover {
     transform: scale(1.08);
     box-shadow: 0 0 25px rgba(37, 211, 102, 0.8);
@@ -103,12 +95,6 @@
   .btn img {
     width: 24px;
     height: 24px;
-  }
-
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
   }
 
   .loader {
@@ -140,7 +126,7 @@
 <body>
 <div class="container">
   <div class="logo-container">
-    <img src="https://raw.githubusercontent.com/GER34714/DINASTY-BET/refs/heads/main/Screenshot_2025-08-18-18-12-18-724_com.whatsapp.jpg" alt="Logo DINASTY BET" class="croupier-logo">
+    <img src="https://raw.githubusercontent.com/GER34714/DINASTY-BET/refs/heads/main/IMG-20250818-WA0033(1).jpg" alt="Logo DINASTY BET" class="croupier-logo">
   </div>
 
   <h1>DINASTY BET ™</h1>
