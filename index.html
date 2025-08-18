@@ -40,20 +40,7 @@
     z-index: 2;
   }
 
-  .welcome-text {
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-    color: #ffd700;
-    font-weight: bold;
-    text-shadow: 0 0 2px #ffd700, 0 0 4px #ffcc00, 0 0 6px #ffdd33;
-    animation: neonGlow 1.5s ease-in-out infinite alternate;
-  }
-
-  @keyframes neonGlow {
-    from { text-shadow: 0 0 2px #ffd700, 0 0 4px #ffcc00, 0 0 6px #ffdd33; }
-    to { text-shadow: 0 0 6px #ffd700, 0 0 12px #ffcc00, 0 0 18px #ffdd33; }
-  }
-
+  /* Logo principal arriba */
   .logo-container {
     margin-bottom: 20px;
     animation: pulseLogo 2s infinite;
@@ -68,6 +55,21 @@
   @keyframes pulseLogo {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
+  }
+
+  /* Texto de bienvenida debajo del logo, brillo más opaco */
+  .welcome-text {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #ffd700;
+    font-weight: bold;
+    text-shadow: 0 0 1px #ffd700, 0 0 2px #ffcc00, 0 0 4px #ffdd33;
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes neonGlow {
+    from { text-shadow: 0 0 1px #ffd700, 0 0 2px #ffcc00, 0 0 4px #ffdd33; }
+    to { text-shadow: 0 0 2px #ffd700, 0 0 4px #ffcc00, 0 0 6px #ffdd33; }
   }
 
   .btn-container {
@@ -144,11 +146,13 @@
 <body>
 
 <div class="container">
-  <div class="welcome-text">Bienvenido a la nueva era del juego online</div>
-
+  <!-- Logo arriba -->
   <div class="logo-container">
     <img src="https://raw.githubusercontent.com/GER34714/DINASTY-BET/refs/heads/main/IMG-20250818-WA0033(1).jpg" alt="Logo DINASTY BET" class="croupier-logo">
   </div>
+
+  <!-- Texto debajo del logo -->
+  <div class="welcome-text">Bienvenido a la nueva era del juego online</div>
 
   <div class="btn-container">
     <a class="btn" id="whatsappBtn">
