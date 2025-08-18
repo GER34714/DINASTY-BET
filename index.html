@@ -8,9 +8,9 @@
   body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(-45deg, #000000, #1a1a1a, #000000, #2a2a2a);
+    background: linear-gradient(135deg, #ffd700, #000000);
     background-size: 400% 400%;
-    animation: gradientMove 20s linear infinite;
+    animation: gradientMove 15s ease infinite;
     color: #ffd700;
     display: flex;
     justify-content: center;
@@ -22,9 +22,9 @@
   }
 
   @keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
   }
 
   .container {
@@ -67,13 +67,6 @@
     margin-bottom: 5px;
   }
 
-  .logo {
-    font-size: 2.8rem;
-    animation: bounce 1.8s infinite;
-  }
-
-  @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-
   .btn-container {
     position: relative;
     display: inline-block;
@@ -81,49 +74,39 @@
   }
 
   .btn {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     padding: 14px 22px;
-    background: #ffd700;
-    color: #000;
+    background: #25D366;
+    color: #fff;
     font-weight: bold;
     text-decoration: none;
     border-radius: 10px;
     font-size: 1.1rem;
-    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
     transition: all 0.3s ease;
     animation: pulse 1.5s infinite;
     cursor: pointer;
     position: relative;
-    z-index: 2;
+    z-index: 1;
   }
 
   .btn:hover {
-    background: #e6c200;
     transform: scale(1.08);
-    box-shadow: 0 0 16px #ffd700;
+    box-shadow: 0 0 25px rgba(37, 211, 102, 0.8);
+  }
+
+  .btn img {
+    width: 24px;
+    height: 24px;
   }
 
   @keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.04); }
     100% { transform: scale(1); }
-  }
-
-  /* Halo y partículas verdes */
-  .particle {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: rgba(37, 211, 102, 0.7);
-    border-radius: 50%;
-    pointer-events: none;
-    animation: floatParticle 2s infinite ease-in-out;
-  }
-
-  @keyframes floatParticle {
-    0% { transform: translate(0,0) scale(1); opacity: 1; }
-    50% { transform: translate(var(--x), var(--y)) scale(0.5); opacity: 0.6; }
-    100% { transform: translate(0,0) scale(1); opacity: 1; }
   }
 
   .loader {
@@ -138,20 +121,6 @@
 
   @keyframes spin { 100% { transform: rotate(360deg); } }
 
-  .music-control {
-    margin-top: 15px;
-    background: transparent;
-    border: 2px solid #ffd700;
-    color: #ffd700;
-    padding: 8px 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-  }
-
-  .music-control:hover { background: #ffd700; color: #000; }
-
   .legal {
     font-size: 0.75rem;
     color: #ffcc00;
@@ -162,8 +131,6 @@
   @media (max-width: 450px) {
     h1 { font-size: 1.9rem; }
     .btn { font-size: 1rem; padding: 12px 20px; }
-    .logo { font-size: 2.5rem; }
-    .music-control { font-size: 0.9rem; padding: 7px 12px; }
     .croupier-logo { width: 60px; }
   }
 </style>
@@ -172,7 +139,6 @@
 <div class="container">
   <div class="logo-container">
     <img src="croupier.png" alt="Croupier" class="croupier-logo">
-    <div class="logo">🏆</div>
   </div>
 
   <h1>DINASTY BET ™</h1>
@@ -180,20 +146,17 @@
   <div class="loader"></div>
 
   <div class="btn-container">
-    <a class="btn" id="whatsappBtn">Ir a WhatsApp</a>
+    <a class="btn" id="whatsappBtn">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      Ir a WhatsApp
+    </a>
   </div>
-
-  <button class="music-control" id="musicBtn">🔊 Música ON</button>
 
   <div class="legal">
     <p>No apto para menores de 18 años</p>
     <p>Jugar compulsivamente es perjudicial para la salud</p>
   </div>
 </div>
-
-<audio id="bgMusic" loop>
-  <source src="https://files.catbox.moe/k0px4j.mp3" type="audio/mpeg">
-</audio>
 
 <script>
   // WhatsApp rotativo
@@ -208,38 +171,6 @@
     currentIndex = (currentIndex + 1) % numbers.length;
     window.open(link, "_blank");
   });
-
-  // Música
-  const music = document.getElementById("bgMusic");
-  const musicBtn = document.getElementById("musicBtn");
-  let isPlaying = false;
-
-  musicBtn.addEventListener("click", () => {
-    if (isPlaying) {
-      music.pause();
-      musicBtn.textContent = "🔇 Música OFF";
-    } else {
-      music.play();
-      musicBtn.textContent = "🔊 Música ON";
-    }
-    isPlaying = !isPlaying;
-  });
-
-  // Crear partículas alrededor del botón
-  const btnContainer = document.querySelector('.btn-container');
-
-  function createParticle() {
-    const particle = document.createElement('div');
-    particle.classList.add('particle');
-    const x = (Math.random() - 0.5) * 60 + "px";
-    const y = (Math.random() - 0.5) * 60 + "px";
-    particle.style.setProperty('--x', x);
-    particle.style.setProperty('--y', y);
-    btnContainer.appendChild(particle);
-    setTimeout(() => particle.remove(), 2000);
-  }
-
-  setInterval(createParticle, 200);
 </script>
 </body>
 </html>
