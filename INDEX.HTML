@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DINASTY BET ™ - Bienvenido</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #000000, #1a1a1a);
+      color: #ffd700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .container {
+      max-width: 400px;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #ffd700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 15px 25px;
+      background: #ffd700;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      background: #e6c200;
+      transform: scale(1.05);
+    }
+    .logo {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    .loader {
+      border: 5px solid #333;
+      border-top: 5px solid #ffd700;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      margin: 20px auto;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">🏆</div>
+    <h1>DINASTY BET ™</h1>
+    <p>Tu próxima experiencia de casino está aquí</p>
+    <div class="loader"></div>
+    <a id="whatsappBtn" class="btn" target="_blank">Ir a WhatsApp</a>
+  </div>
+
+  <script>
+    // Números de WhatsApp disponibles
+    const numbers = [
+      "5491123365501",
+      "5491159255356"
+    ];
+
+    // Seleccionar aleatoriamente un número
+    const randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
+
+    // Mensaje predeterminado
+    const message = "hola me creas un usuario";
+
+    // Construcción del link
+    const whatsappLink = `https://wa.me/${randomNumber}?text=${encodeURIComponent(message)}`;
+
+    // Asignar al botón
+    document.getElementById("whatsappBtn").href = whatsappLink;
+  </script>
+</body>
+</html>
