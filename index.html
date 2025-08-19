@@ -42,11 +42,10 @@
     margin-bottom: 20px;
   }
 
-  /* Animación bounce para el logo */
-  @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-15px); }
-    60% { transform: translateY(-7px); }
+  /* Animación pulso y resplandor neón suave para el logo */
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
   }
 
   .croupier-logo {
@@ -54,7 +53,9 @@
     max-width: 450px;
     height: auto;
     border-radius: 12px;
-    animation: bounce 2s infinite;
+    animation: pulse 2s infinite;
+    /* Resplandor neón suave */
+    box-shadow: 0 0 8px #ffd700, 0 0 15px #ffcc00 inset;
   }
 
   /* Texto de bienvenida debajo del logo, brillo sutil */
@@ -70,6 +71,7 @@
     margin-top: 20px;
   }
 
+  /* Botón WhatsApp con luz neón intensa */
   .btn {
     display: inline-flex;
     align-items: center;
@@ -82,8 +84,8 @@
     border-radius: 10px;
     font-size: 0.85rem;
     border: 2px solid #25D366;
-    box-shadow: 0 0 8px #25D366, 0 0 15px #25D366 inset;
-    text-shadow: 0 0 5px #25D366;
+    box-shadow: 0 0 12px #25D366, 0 0 25px #25D366 inset;
+    text-shadow: 0 0 8px #25D366;
     transition: all 0.3s ease;
     cursor: pointer;
   }
@@ -95,8 +97,8 @@
 
   .btn:hover {
     color: #fff;
-    text-shadow: 0 0 8px #25D366, 0 0 15px #25D366 inset;
-    box-shadow: 0 0 20px #25D366, 0 0 25px #25D366 inset;
+    text-shadow: 0 0 12px #25D366, 0 0 25px #25D366 inset;
+    box-shadow: 0 0 25px #25D366, 0 0 35px #25D366 inset;
     transform: scale(1.05);
   }
 
@@ -191,9 +193,7 @@
     const link = `https://wa.me/${numbers[currentIndex]}?text=${encodeURIComponent(message)}`;
     currentIndex = (currentIndex + 1) % numbers.length;
     window.open(link, "_blank");
-
-    // Oculta la landing y muestra mensaje de redirección
-    document.body.innerHTML = "<h1 style='color:#ffd700; text-align:center; margin-top:40vh;'>Gracias, serás redirigido a WhatsApp...</h1>";
+    // La página permanece visible
   });
 </script>
 </body>
